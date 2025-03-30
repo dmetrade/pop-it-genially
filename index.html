@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-it с английскими словами</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .pop-it {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            width: 800px;
+            height: 800px;
+            gap: 15px;
+            padding: 20px;
+            background: #ffcc00;
+            border-radius: 15px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        .bubble {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ff5733;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+            height: 100%;
+        }
+        .bubble.popped {
+            background: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="pop-it"></div>
+
+<script>
+    const words = ["Apple", "Dog", "Car", "Sun", "Book", "Tree", "Fish", "House", "Ball", "Chair", 
+                   "Cloud", "Bird", "Water", "Moon", "Flower", "Phone", "Window", "Table", "Shoe", "Star",
+                   "Door", "Mountain", "River", "Clock", "Hat"];
+    const popItContainer = document.querySelector(".pop-it");
+
+    function getRandomWord() {
+        return words[Math.floor(Math.random() * words.length)];
+    }
+
+    function createBubble() {
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+        bubble.textContent = "??";
+        
+        bubble.addEventListener("click", function() {
+            if (!bubble.classList.contains("popped")) {
+                bubble.textContent = getRandomWord();
+                bubble.classList.add("popped");
+            }
+        });
+
+        return bubble;
+    }
+
+    function generatePopIt(rows, cols) {
+        for (let i = 0; i < rows * cols; i++) {
+            popItContainer.appendChild(createBubble());
+        }
+    }
+
+    generatePopIt(5, 5);
+</script>
+
+</body>
+</html>
