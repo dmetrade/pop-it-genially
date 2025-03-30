@@ -15,7 +15,6 @@
             margin: 0;
         }
 
-        /* Добавляем анимацию для появления поп-ита */
         .pop-it {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -26,20 +25,20 @@
             padding: 20px;
             background: #ffcc00;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень для поп-ита */
-            transform: perspective(1000px) rotateX(10deg); /* 3D-эффект */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transform: perspective(1000px) rotateX(10deg);
             transition: transform 0.3s ease;
         }
 
         .pop-it:hover {
-            transform: perspective(1000px) rotateX(0deg); /* Реакция на наведение */
+            transform: perspective(1000px) rotateX(0deg);
         }
 
         .bubble {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(145deg, #ff5733, #ff2a00); /* Градиент */
+            background: linear-gradient(145deg, #ff5733, #ff2a00);
             border-radius: 50%;
             font-size: 24px;
             font-weight: bold;
@@ -48,24 +47,23 @@
             transition: transform 0.2s, box-shadow 0.2s;
             width: 100%;
             height: 100%;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Легкая тень */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             transform: scale(1);
         }
 
         .bubble:hover {
-            transform: scale(1.1); /* Увеличение пузыря при наведении */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Увеличенная тень */
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
 
         .bubble.popped {
             background: #ddd;
             color: black;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* Вдавленный эффект */
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Анимация для эффектов нажатия */
         .bubble:active {
-            transform: scale(0.95); /* Легкое уменьшение при нажатии */
+            transform: scale(0.95);
         }
     </style>
 </head>
